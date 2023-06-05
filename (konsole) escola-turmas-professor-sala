@@ -1,0 +1,125 @@
+    ~  mysql -u aluno -p                                                                                                                                                ✔ 
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'aluno'@'localhost' (using password: YES)
+    ~  mysql -u aluno                                                                                                                                         1 ✘  40s  
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 6
+Server version: 10.11.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database escola;
+ERROR 1007 (HY000): Can't create database 'escola'; database exists
+MariaDB [(none)]> create database escola2;
+Query OK, 1 row affected (0,000 sec)
+
+MariaDB [(none)]> use escola2;
+Database changed
+MariaDB [escola2]> create table turmas(
+    -> 
+Broadcast message from aluno@PC29LAB3 (Mon 2023-06-05 15:10:00 -03):
+
+The system will power off at Mon 2023-06-05 23:10:00 -03!
+
+use escola2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'use escola2' at line 2
+MariaDB [escola2]> create table turmas(
+    -> cgm int not null,
+    -> nome varchar(30),
+    -> qtde alunos int(50),
+    -> qtfe carteiras int(90),
+    -> primary key (cgm));
+ERROR 4161 (HY000): Unknown data type: 'alunos'
+MariaDB [escola2]> create table turmas(
+    -> cgm int not null,
+    -> nome varchar(30),
+    -> qtdealunos int(50),
+    -> qtdecarteiras int(90),
+    -> primary key (cgm));
+Query OK, 0 rows affected (0,033 sec)
+
+MariaDB [escola2]> create table professor(
+    -> cpf int(11) not null,
+    -> nome varchar(30),
+    -> telefone int(12),
+    -> materia varchar(30),
+    -> primary key (cpf));
+Query OK, 0 rows affected (0,033 sec)
+
+MariaDB [escola2]> create table sala(
+    -> idsala int(100),
+    -> 
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [escola2]> create table sala(
+    -> idsala int(100) not null,
+    -> local varchar(100),
+    -> qtdealunos int(50),
+    -> numerosala int(100),
+    -> primary key (idsala));
+Query OK, 0 rows affected (0,033 sec)
+
+MariaDB [escola2]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| becario            |
+| bercario           |
+| destinos           |
+| escola             |
+| escola2            |
+| gabriel            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+11 rows in set (0,001 sec)
+
+MariaDB [escola2]> show tables;
++-------------------+
+| Tables_in_escola2 |
++-------------------+
+| professor         |
+| sala              |
+| turmas            |
++-------------------+
+3 rows in set (0,000 sec)
+
+MariaDB [escola2]> show columns from professor;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| cpf      | int(11)     | NO   | PRI | NULL    |       |
+| nome     | varchar(30) | YES  |     | NULL    |       |
+| telefone | int(12)     | YES  |     | NULL    |       |
+| materia  | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0,001 sec)
+
+MariaDB [escola2]> show columns from turmas;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| cgm           | int(11)     | NO   | PRI | NULL    |       |
+| nome          | varchar(30) | YES  |     | NULL    |       |
+| qtdealunos    | int(50)     | YES  |     | NULL    |       |
+| qtdecarteiras | int(90)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0,001 sec)
+
+MariaDB [escola2]> show columns from sala
+    -> ;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| idsala     | int(100)     | NO   | PRI | NULL    |       |
+| local      | varchar(100) | YES  |     | NULL    |       |
+| qtdealunos | int(50)      | YES  |     | NULL    |       |
+| numerosala | int(100)     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0,001 sec)
